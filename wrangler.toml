@@ -1,0 +1,11 @@
+name = "albion-coach"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "albion-coach-db"
+database_id = "replace-with-your-d1-database-id"
+
+[vars]
+SESSION_SECRET = "replace-with-a-long-random-secret"
