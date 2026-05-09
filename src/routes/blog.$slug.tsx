@@ -36,15 +36,52 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [] };
     const img = POST_IMAGES[loaderData.slug] ?? journalProtocol;
+    const canonicalUrl = `https://sjtcoaches.co.uk/blog/${loaderData.slug}`;
     return {
       meta: [
         { title: loaderData.title + " — SJT Coaches Journal" },
         { name: "description", content: loaderData.excerpt },
         { property: "og:title", content: loaderData.title },
         { property: "og:description", content: loaderData.excerpt },
-        { property: "og:image", content: img },
+        { property: "og:image", content: `https://sjtcoaches.co.uk${img}` },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: canonicalUrl },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:image", content: img },
+        { name: "twitter:image", content: `https://sjtcoaches.co.uk${img}` },
+      ],
+      links: [
+        { rel: "canonical", href: canonicalUrl },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: loaderData.title,
+            description: loaderData.excerpt,
+            image: `https://sjtcoaches.co.uk${img}`,
+            datePublished: loaderData.date,
+            dateModified: loaderData.date,
+            author: {
+              "@type": "Organization",
+              name: "SJT Coaches",
+              url: "https://sjtcoaches.co.uk",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "SJT Coaches",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://sjtcoaches.co.uk/logo.png",
+              },
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": canonicalUrl,
+            },
+          }),
+        },
       ],
     };
   },

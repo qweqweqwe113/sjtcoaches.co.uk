@@ -24,6 +24,8 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
+import { Route as RobotsTxtRouteImport } from './routes/robots.txt'
 import { Route as HireCityRouteImport } from './routes/hire.$city'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
@@ -102,6 +104,16 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/',
   getParentRoute: () => BlogRoute,
 } as any)
+const SitemapXmlRoute = SitemapXmlRouteImport.update({
+  id: '/sitemap/xml',
+  path: '/sitemap/xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsTxtRoute = RobotsTxtRouteImport.update({
+  id: '/robots/txt',
+  path: '/robots/txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HireCityRoute = HireCityRouteImport.update({
   id: '/hire/$city',
   path: '/hire/$city',
@@ -130,6 +142,8 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hire/$city': typeof HireCityRoute
+  '/robots/txt': typeof RobotsTxtRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -148,6 +162,8 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hire/$city': typeof HireCityRoute
+  '/robots/txt': typeof RobotsTxtRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -168,6 +184,8 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hire/$city': typeof HireCityRoute
+  '/robots/txt': typeof RobotsTxtRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -189,6 +207,8 @@ export interface FileRouteTypes {
     | '/terms'
     | '/blog/$slug'
     | '/hire/$city'
+    | '/robots/txt'
+    | '/sitemap/xml'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -207,6 +227,8 @@ export interface FileRouteTypes {
     | '/terms'
     | '/blog/$slug'
     | '/hire/$city'
+    | '/robots/txt'
+    | '/sitemap/xml'
     | '/blog'
   id:
     | '__root__'
@@ -226,6 +248,8 @@ export interface FileRouteTypes {
     | '/terms'
     | '/blog/$slug'
     | '/hire/$city'
+    | '/robots/txt'
+    | '/sitemap/xml'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -245,6 +269,8 @@ export interface RootRouteChildren {
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   HireCityRoute: typeof HireCityRoute
+  RobotsTxtRoute: typeof RobotsTxtRoute
+  SitemapXmlRoute: typeof SitemapXmlRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -354,6 +380,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/sitemap/xml': {
+      id: '/sitemap/xml'
+      path: '/sitemap/xml'
+      fullPath: '/sitemap/xml'
+      preLoaderRoute: typeof SitemapXmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots/txt': {
+      id: '/robots/txt'
+      path: '/robots/txt'
+      fullPath: '/robots/txt'
+      preLoaderRoute: typeof RobotsTxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hire/$city': {
       id: '/hire/$city'
       path: '/hire/$city'
@@ -399,6 +439,8 @@ const rootRouteChildren: RootRouteChildren = {
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   HireCityRoute: HireCityRoute,
+  RobotsTxtRoute: RobotsTxtRoute,
+  SitemapXmlRoute: SitemapXmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

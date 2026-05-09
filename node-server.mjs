@@ -18,6 +18,7 @@ config();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
 const CLIENT_DIR = path.join(__dirname, "dist/client");
+const PUBLIC_DIR = path.join(__dirname, "public");
 
 // ── MIME types ───────────────────────────────────────────────────────────────
 const MIME = {
@@ -55,9 +56,23 @@ if (!fetchHandler) {
 // ── Static file helper ───────────────────────────────────────────────────────
 async function serveStatic(req, res) {
   const url = new URL(req.url, `http://localhost`);
-  let filePath = path.join(CLIENT_DIR, url.pathname);
 
-  // Security: prevent path traversal
+  // Check public/ first (favicon.ico, og-image.jpg, site.webmanifest etc.)
+  const publicPath = path.join(PUBLIC_DIR, url.pathname);
+  if (publicPath.startsWith(PUBLIC_DIR) && existsSync(publicPath) && (await import("node:fs")).statSync(publicPath).isFile()) {
+    const ext = path.extname(publicPath).toLowerCase();
+    const mime = MIME[ext] || "application/octet-stream";
+    const content = await readFile(publicPath);
+    res.writeHead(200, {
+      "Content-Type": mime,
+      "Cache-Control": "public, max-age=86400",
+    });
+    res.end(content);
+    return true;
+  }
+
+  // Then check dist/client/
+  const filePath = path.join(CLIENT_DIR, url.pathname);
   if (!filePath.startsWith(CLIENT_DIR)) {
     res.writeHead(403);
     res.end("Forbidden");
@@ -68,8 +83,6 @@ async function serveStatic(req, res) {
     const ext = path.extname(filePath).toLowerCase();
     const mime = MIME[ext] || "application/octet-stream";
     const content = await readFile(filePath);
-
-    // Long cache for hashed assets
     const isHashed = /\.[a-f0-9]{8,}\.\w+$/.test(filePath);
     res.writeHead(200, {
       "Content-Type": mime,

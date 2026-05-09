@@ -1,7 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import faviconUrl from "@/assets/Logo/ICON.png?url";
 import { CookieConsent } from "@/components/CookieConsent";
 import { AIConcierge } from "@/components/AIConcierge";
 import { ComingSoon } from "@/components/ComingSoon";
@@ -36,26 +35,32 @@ export const Route = createRootRoute({
       { title: "SJT Coaches — Luxury Coach Hire London & UK" },
       { name: "description", content: "Premium chauffeured coach hire across London and the UK. Executive fleet, 24/7 concierge, instant pricing." },
       { name: "author", content: "SJT Coaches" },
-      { property: "og:title", content: "SJT Coaches — Luxury Coach Hire" },
-      { property: "og:description", content: "Premium chauffeured coach hire across London and the UK." },
+      { property: "og:site_name", content: "SJT Coaches" },
+      { property: "og:title", content: "SJT Coaches — Luxury Coach Hire London & UK" },
+      { property: "og:description", content: "Premium chauffeured coach hire across London and the UK. Executive fleet, 24/7 concierge, instant pricing." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Platinum Coach Booking is a luxury coach hire website for UK-based companies." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/74307615-86f8-494a-b8bf-73cef7f64f8b/id-preview-d3eed12c--3f263d2d-07ce-40e4-ae55-3ac447b916e5.lovable.app-1777144302054.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/74307615-86f8-494a-b8bf-73cef7f64f8b/id-preview-d3eed12c--3f263d2d-07ce-40e4-ae55-3ac447b916e5.lovable.app-1777144302054.png" },
+      { property: "og:url", content: "https://sjtcoaches.co.uk" },
+      { property: "og:image", content: "https://sjtcoaches.co.uk/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:locale", content: "en_GB" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@SJTCoaches" },
+      { name: "twitter:title", content: "SJT Coaches — Luxury Coach Hire London & UK" },
+      { name: "twitter:description", content: "Premium chauffeured coach hire across London and the UK. Executive fleet, 24/7 concierge, instant pricing." },
+      { name: "twitter:image", content: "https://sjtcoaches.co.uk/og-image.jpg" },
+      { name: "robots", content: "index, follow" },
+      { name: "theme-color", content: "#0a0a0a" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      {
-        rel: "icon",
-        type: "image/png",
-        href: faviconUrl,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon-96x96.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      { rel: "manifest", href: "/site.webmanifest" },
+      { rel: "canonical", href: "https://sjtcoaches.co.uk" },
     ],
   }),
   shellComponent: RootShell,
