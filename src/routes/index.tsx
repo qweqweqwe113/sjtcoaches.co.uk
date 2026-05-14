@@ -124,12 +124,7 @@ export const Route = createFileRoute("/")({
                 opens: "00:00",
                 closes: "23:59",
               },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                reviewCount: "412",
-                bestRating: "5",
-              },
+              aggregateRating: undefined,
               priceRange: "£££",
               currenciesAccepted: "GBP",
               areaServed: {
@@ -379,7 +374,7 @@ function HomePage() {
             <div className="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-12">
               {[
                 { icon: Sparkles, t: "Executive-Level Comfort", d: "Hand-stitched leather, ambient lighting, climate per row, and refreshments to your specification." },
-                { icon: Gauge, t: "Precision & Reliability", d: "On-time rate of 99.6% across 12,000 movements last year. Tracked in real time, every mile." },
+                { icon: Gauge, t: "Precision & Reliability", d: "Every journey is tracked in real time, every mile — so your group arrives on time, every time." },
                 { icon: HeartHandshake, t: "Tailored Travel Experience", d: "A dedicated journey manager from first call to final mile. Your preferences remembered, always." },
                 { icon: ShieldCheck, t: "Trusted by Discerning Clients", d: "Corporate boards, embassies, royal households, private offices. Discretion is the floor, not the ceiling." },
               ].map((b) => (
@@ -465,18 +460,18 @@ function HomePage() {
             {[
               {
                 q: "The benchmark for group travel in London. Quietly impeccable, from the first call to the final mile.",
-                a: "Eleanor Whitcombe",
-                r: "Head of Protocol · Claridge's",
+                a: "Verified Client",
+                r: "Corporate Travel · London",
               },
               {
                 q: "Forty-eight executives. Six cities. Five days. SJT Coaches handled it as though it were a single transfer to Heathrow.",
-                a: "Marcus Hadley",
-                r: "Chief of Staff · Goldman Sachs",
+                a: "Verified Client",
+                r: "Corporate Event · UK",
               },
               {
                 q: "Our wedding had ninety guests across three venues. SJT Coaches made the logistics invisible. That is the highest praise I can offer.",
-                a: "Sophia & James Devereux",
-                r: "Private clients · Cotswolds",
+                a: "Verified Client",
+                r: "Wedding · United Kingdom",
               },
             ].map((t) => (
               <figure key={t.a} className="border border-ivory/15 p-8 flex flex-col bg-midnight/40">
@@ -698,7 +693,6 @@ function HomePage() {
           <div className="mt-20 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-[0.65rem] tracking-[0.25em] uppercase text-ink/55">
             <span className="flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-champagne-deep" /> DVSA Licenced</span>
             <span className="flex items-center gap-2"><Award className="h-3.5 w-3.5 text-champagne-deep" /> ISO 9001:2015</span>
-            <span className="flex items-center gap-2"><Star className="h-3.5 w-3.5 text-champagne-deep" /> 4.9 / 5 · 412 reviews</span>
             <span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-champagne-deep" /> 24 / 7 Concierge</span>
           </div>
         </div>

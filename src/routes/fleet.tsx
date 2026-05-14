@@ -37,6 +37,10 @@ import fleetElectric from "@/assets/fleet-electric.jpg";
 import fleetShuttle from "@/assets/fleet-shuttle.jpg";
 import fleetHeritage from "@/assets/fleet-heritage.jpg";
 import fleetSleeper from "@/assets/fleet-sleeper.jpg";
+import fleet49Seater from "@/assets/fleet-49-seater.png";
+import fleet55Seater from "@/assets/fleet-55-seater.png";
+import car1 from "@/assets/car1.jpg";
+import car2 from "@/assets/car2.jpg";
 
 
 export const Route = createFileRoute("/fleet")({
@@ -311,6 +315,52 @@ const FLEET: Vehicle[] = [
     amenities: { wifi: true, refreshment: true, entertainment: true, lavatory: true, tables: false, usb: true },
   },
   {
+    id: "coach-49-seater",
+    img: fleet49Seater,
+    tag: "Touring",
+    category: "Coaches",
+    name: "Executive 49 Seater",
+    model: "49-seat executive coach",
+    capacity: "49",
+    capacityNum: 49,
+    range: "From £880 / day",
+    features: ["Reclining seats", "Onboard Wi-Fi", "USB at every seat", "Generous luggage hold"],
+    blurb:
+      "A premium 49-seat executive coach ideal for large group travel, corporate events, and long-distance tours across the UK.",
+    specs: [
+      { label: "Capacity", value: "49 passengers" },
+      { label: "Luggage", value: "Underfloor hold" },
+      { label: "Trim", value: "Executive cloth & leather" },
+      { label: "Year", value: "Current fleet" },
+      { label: "Service interval", value: "3 weeks" },
+      { label: "Climate", value: "Full air conditioning" },
+    ],
+    amenities: { wifi: true, refreshment: true, entertainment: true, lavatory: true, tables: false, usb: true },
+  },
+  {
+    id: "coach-55-seater",
+    img: fleet55Seater,
+    tag: "Touring",
+    category: "Coaches",
+    name: "Executive 55 Seater",
+    model: "55-seat executive coach",
+    capacity: "55",
+    capacityNum: 55,
+    range: "From £960 / day",
+    features: ["Reclining seats", "Onboard Wi-Fi", "USB at every seat", "Toilet & galley"],
+    blurb:
+      "A spacious 55-seat executive coach for large groups, school trips, stadium transfers, and extended UK tours.",
+    specs: [
+      { label: "Capacity", value: "55 passengers" },
+      { label: "Luggage", value: "Underfloor hold" },
+      { label: "Trim", value: "Executive cloth & leather" },
+      { label: "Year", value: "Current fleet" },
+      { label: "Service interval", value: "3 weeks" },
+      { label: "Climate", value: "Full air conditioning" },
+    ],
+    amenities: { wifi: true, refreshment: true, entertainment: true, lavatory: true, tables: false, usb: true },
+  },
+  {
     id: "v-class-prive",
     img: fleetMinibus,
     tag: "Executive",
@@ -332,6 +382,52 @@ const FLEET: Vehicle[] = [
       { label: "Service interval", value: "4 weeks" },
     ],
     amenities: { wifi: true, refreshment: true, entertainment: false, lavatory: false, tables: true, usb: true },
+  },
+  {
+    id: "minibus-car1",
+    img: car1,
+    tag: "Executive",
+    category: "Minibuses",
+    name: "Executive Minibus I",
+    model: "Executive minibus",
+    capacity: "8 — 16",
+    capacityNum: 16,
+    range: "From £320 / day",
+    features: ["Leather seating", "Onboard Wi-Fi", "USB charging", "Air conditioning"],
+    blurb:
+      "A versatile executive minibus for airport transfers, corporate travel, and private group hire across the UK.",
+    specs: [
+      { label: "Capacity", value: "Up to 16 passengers" },
+      { label: "Luggage", value: "Dedicated hold" },
+      { label: "Trim", value: "Executive leather" },
+      { label: "Year", value: "Current fleet" },
+      { label: "Service interval", value: "4 weeks" },
+      { label: "Climate", value: "Full air conditioning" },
+    ],
+    amenities: { wifi: true, refreshment: true, entertainment: false, lavatory: false, tables: false, usb: true },
+  },
+  {
+    id: "minibus-car2",
+    img: car2,
+    tag: "Executive",
+    category: "Minibuses",
+    name: "Executive Minibus II",
+    model: "Executive minibus",
+    capacity: "8 — 16",
+    capacityNum: 16,
+    range: "From £320 / day",
+    features: ["Leather seating", "Onboard Wi-Fi", "USB charging", "Air conditioning"],
+    blurb:
+      "A premium executive minibus ideal for group transfers, events, and corporate shuttle services throughout the UK.",
+    specs: [
+      { label: "Capacity", value: "Up to 16 passengers" },
+      { label: "Luggage", value: "Dedicated hold" },
+      { label: "Trim", value: "Executive leather" },
+      { label: "Year", value: "Current fleet" },
+      { label: "Service interval", value: "4 weeks" },
+      { label: "Climate", value: "Full air conditioning" },
+    ],
+    amenities: { wifi: true, refreshment: true, entertainment: false, lavatory: false, tables: false, usb: true },
   },
 ];
 

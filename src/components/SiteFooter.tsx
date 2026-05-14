@@ -20,8 +20,6 @@ export function SiteFooter() {
             <div className="mt-6 flex flex-wrap gap-3 text-[0.65rem] tracking-[0.25em] uppercase text-ivory/50">
               <span>VOSA Approved</span>
               <span className="text-champagne">·</span>
-              <span>O-Licence PG2089543</span>
-              <span className="text-champagne">·</span>
               <span>ISO 9001:2015</span>
             </div>
           </div>
@@ -104,14 +102,6 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-ivory/10 flex flex-col items-center gap-4 text-xs text-ivory/50">
-          {/* Legal & licence details — update when client sends details */}
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-ivory/40 text-[0.65rem] tracking-wide">
-            <span>Company Reg: <span className="text-ivory/60">[ Awaiting ]</span></span>
-            <span className="text-ivory/20">·</span>
-            <span>O Licence PSV: <span className="text-ivory/60">[ Awaiting ]</span></span>
-            <span className="text-ivory/20">·</span>
-            <span>Insurance: <span className="text-ivory/60">[ Awaiting ]</span></span>
-          </div>
           <div>© {new Date().getFullYear()} SJT Coaches Ltd. All rights reserved.</div>
           <div className="flex gap-12">
             <Link to="/privacy" className="hover:text-champagne">Privacy Policy</Link>
