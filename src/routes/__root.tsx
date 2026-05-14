@@ -51,6 +51,19 @@ export const Route = createRootRoute({
       { name: "twitter:image", content: "https://sjtcoaches.co.uk/og-image.jpg" },
       { name: "robots", content: "index, follow" },
       { name: "theme-color", content: "#0a0a0a" },
+      { name: "google-site-verification", content: "b8dtNiAh2OTfMc8aoljb0SsC3yxE1uBTOxrxHxk6Bz8" },
+    ],
+    scripts: [
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-Y3VVX5C7KJ",
+        async: true,
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Y3VVX5C7KJ');`,
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
